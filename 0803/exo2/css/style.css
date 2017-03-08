@@ -1,0 +1,57 @@
+/*selecteu logique une balise html
+*/
+/*faire en sorte que tous les textes de la page soient centrés */
+body{
+    text-align: center;
+}
+/* Seléctionner la balise h2 */
+H2{
+    /* Changer la couleur de la font */
+    color:lightgreen;
+
+}
+}
+ul{
+    color:aqua;
+}
+h1{
+    color:mediumvioletred;
+}
+h3{
+    color:blueviolet;
+}
+/* seléctionner les balises a*/
+a{
+    /* supprimer le soulignement*/
+text-decoration: none;
+}
+
+
+
+/*selecteurs imbriqués*/
+h2 b{
+    color:palevioletred;
+}
+/*selecteurs par classe*/
+/*selectionner la class .ivoryBackground*/
+
+.ivoryBackground{
+    /*modifier la couleur de fond */
+    background-color:ivory;
+
+}
+/*selecteurs par id*/
+/*selectionner l'id big title*/
+#bigTitle{
+    /*modifier la taille de la font*/
+    font-size: 3rem;
+
+}
+/*selectionner l'interaction*/
+/*changer la couleur de la balise au survol de la souris*/
+a:hover{
+    color:aqua
+}
+#bigTitle :hover{
+    color:pink
+}
