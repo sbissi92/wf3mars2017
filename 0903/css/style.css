@@ -1,0 +1,61 @@
+/*
+style recet
+*/
+
+/*style header*/
+header{
+    /*aligner le texte au centre*/
+    text-align:center;
+    /*modifier la couleur de la font*/
+    color:papayawhip;
+    /*modifier la couleur du backgound*/
+    background-color: cadetblue;
+}
+nav{
+    /*mettre le text en majuscule*/
+    text-transform: uppercase;
+    /*ajouter une couleur de fond*/
+    background: #2c3e50;
+    
+}
+nav a{
+    /*modifier la couleur du text*/
+    color:papayawhip;
+    /*passer le text en gras*/
+    font-weight: bold;
+}
+/*aligner les balisees li*/
+li{
+    display:inline-block;
+    /*ajouter une marge à droite*/
+    margin-right: 1rem;
+}
+   
+
+
+
+
+
+
+/*supprimer les marges*/
+*{
+    margin:0;
+    padding:0;
+}
+/*faire en sorte que 1rem soit égal à 10px*/
+html{
+    font-size: 62,5%;
+}
+body{
+    font-size: 1,5rem;
+    /*changer la famille des caractéres*/
+    font-family: "arial",sans-serif;
+}
+/*supprimer la décoration des balises a*/
+a{
+    text-decoration: none;
+}
+/*faire en sorte que les images ne  dépassent pas leur parent*/
+img{
+    max-width:100%;
+}
