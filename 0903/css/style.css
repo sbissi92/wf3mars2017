@@ -10,13 +10,18 @@ header{
     color:papayawhip;
     /*modifier la couleur du backgound*/
     background-color: cadetblue;
+    padding-bottom:6rem;
 }
 nav{
     /*mettre le text en majuscule*/
     text-transform: uppercase;
     /*ajouter une couleur de fond*/
     background: #2c3e50;
-    
+    /*pour laisse la nav épaisse*/
+    line-height: 5em;
+    /*ajouter une marge extérieure en bas*/
+    margin-bottom:4rem;
+
 }
 nav a{
     /*modifier la couleur du text*/
@@ -44,10 +49,10 @@ li{
 }
 /*faire en sorte que 1rem soit égal à 10px*/
 html{
-    font-size: 62,5%;
+    font-size: 62.5%;
 }
 body{
-    font-size: 1,5rem;
+    font-size: 1.5rem;
     /*changer la famille des caractéres*/
     font-family: "arial",sans-serif;
 }
@@ -58,4 +63,135 @@ a{
 /*faire en sorte que les images ne  dépassent pas leur parent*/
 img{
     max-width:100%;
+}
+section{
+    padding:6rem;
+}
+h1{
+    /*ajouter une marge intérieure en haut de 30px*/
+    padding-top:3rem;
+    /*mettre le texte en majuscule*/
+    text-transform:uppercase;
+    
+
+}
+h2{
+    /*aligner le texte au centre*/
+    text-align: center;
+    /*modifier la casse*/
+    text-transform: uppercase;
+    /*ajouter une marge extérieure en bas de 30px*/
+    margin-bottom: 3rem;
+}
+
+header p{
+    /*augmenter la taille de la font à 25PX*/
+    font-size: 2,5rem;
+}
+/*style portfolio*/
+#portfolio a{
+    /*masquer les balises*/
+    display:none;
+    
+}
+#portfolio article{
+    /*creer 3 colonnes*/
+    display:inline-block;
+    width:29%;
+    margin:1rem;
+}
+#portfolio h2{
+    color:cadetblue;
+}
+#portfolio{
+    text-align: center;
+    background-color: papayawhip;
+}
+/*style about me*/
+#about{
+    /*modifier la couleur de fond*/
+    background: cadetblue;
+/*modifier la couleur de font*/
+color:papayawhip;
+text-align: center;
+}
+#about p{
+/*afficher le text sur deux colonnes*/
+-webkit-column-count:2;
+/*chrome,safari,orera*/
+-moz-column-count:2;
+/*firefox*/
+column-count:2;
+/*justifierle text*/
+text-align:justify;
+margin-bottom: 4rem;
+}
+#about a{
+    
+    color: papayawhip;
+    border: .3rem solid papayawhip;
+    padding:1rem 1.5rem;
+    font-weight: bold;
+    border-radius: 1rem;
+
+}
+/*style de contact me*/
+input,textarea{
+    display:block;
+    width: 30%;
+    margin:1rem auto;
+    padding:1rem;
+    font-size: 2rem;
+    /*annuler le style du navigateur*/
+    border:none;
+    /*redéfinir la bordur*/
+    border-bottom: .1rem solid cadetblue;
+    background-color: papayawhip;
+}
+textarea{
+    /*définir l'hauteur min*/
+    min-height: 20rem;
+}
+#contact{
+    background-color: papayawhip;
+
+}
+#contact h2{
+    color:cadetblue;
+}
+footer{
+    background: #2c3e50;
+    
+}
+h3{
+    color: papayawhip;
+}
+footer article{
+    color:papayawhip;
+    display:inline-block;
+    width:29%;
+    /*gérer l'alignement vertical*/
+    
+    vertical-align: top;
+
+}
+footer a{
+    color:cadetblue;
+}
+input{
+    color:cadetblue;
+}
+footer{
+    text-align: center;
+
+}
+h3{
+    /*modifier la taille de la font*/
+    font-size:2.5rem;
+    /*modifier la casse*/
+    text-transform:uppercase;
+    /*ajouter une marge extérieure en bas de 30px*/
+    margin-bottom:3rem;
+
+    
 }
