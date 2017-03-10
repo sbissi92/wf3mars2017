@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script');
+
+
 /*
 style recet
 */
@@ -57,7 +60,7 @@ html{
 body{
     font-size: 1.5rem;
     /*changer la famille des caractéres*/
-    font-family: "arial",sans-serif;
+    font-family: 'Dancing Script', cursive;
 }
 /*supprimer la décoration des balises a*/
 a{
