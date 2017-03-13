@@ -1,0 +1,55 @@
+/*style recet*/
+/*supprimer ttes les marges de ttes les balises(* pour selectionner tous)*/
+*{
+    margin:0;
+    padding: 0;
+}
+/*configurer la valeur 1rem= 10 pix*/
+html{
+    font-size: 62.5%;
+}
+body{
+    /*ne jamais définir les propriété width et height sur le body*/
+    font-size:1.5rem;
+    text-align: center;
+    /*1.5 REM =15 px*/
+}
+/*style header*/
+header{
+    background:lightgrey;
+    max-width: 50rem;
+    padding: 2rem;
+    /*centrer la balise dans la page html*/
+    margin:2rem auto;
+    /*bloquer les enfants dans leur parent*/
+    position: relative;
+    right: 2    rem;
+
+}
+/*selectionner la 1ere li du header*/
+header li:first-child{
+    /*sortir la balise du flux pour la repositionner à droite*/
+    position: absolute;
+    right: 0;
+}
+/*aligner les balises li de la nav*/
+nav li{
+    display: inline-block;
+}
+/*STYLE MAIN*/
+/*exclure linput de type submit*/
+label,textarea,input:not([type="submit"]){
+    display:block;
+    width: 100%;
+
+}
+/*style footer*/
+/*faire en sorte que le footer soit toujours collé en bas de la page*/
+footer{
+    position: fixed;
+    background: lightgrey;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-width: 100%;
+}
