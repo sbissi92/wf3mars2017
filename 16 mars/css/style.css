@@ -1,0 +1,177 @@
+/* Importer FontAwesome */
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);
+
+/* Importer les polices */
+@import url('https://fonts.googleapis.com/css?family=Merriweather|Open+Sans:400,700');
+
+/*
+Style Reset
+*/
+    *{
+        /* Supprimer toutes les marges */
+        margin: 0;
+        padding: 0;
+
+        /* Intégrer les padding et les border dans les largeurs */
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    /* Ramener la valeur de 1rem à 10px */
+    html{
+        font-size: 62.5%;
+    }
+
+    body{
+        font-size: 1.5rem; /* => 15px */
+        font-family: 'Merriweather', serif;
+        text-align: center;
+    }
+
+    h1, h2, h3 {
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 400;
+    }
+
+    h1 {
+        font-weight: 700;
+        line-height: 1em;
+        text-transform: uppercase;
+        padding: 0 2rem;
+    }
+
+    
+
+    h3{
+        font-size: 2rem;
+        margin: 2rem auto 1rem auto;
+    }
+
+    a, figcaption{
+        text-decoration: none;
+
+        -webkit-transition: all .5s;
+        transition: all .5s;
+    }
+
+    img{
+        max-width: 100%;
+    }
+
+    header > a, main a{
+        font-size: 1.2rem;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 700;
+        text-transform: uppercase;
+        padding: 1rem 1.5rem;
+        
+        -webkit-border-radius: 2rem;
+        border-radius: 2rem;
+
+    }
+
+
+/*
+Style Header
+*/
+    header {
+        background-image: url(../img/header.jpg);
+        background-position: center;
+        background-size: cover;
+        padding: 16rem 2rem 10rem 2rem;
+        padding-bottom: 45rem;
+        color: white;
+    }
+    
+    
+
+    nav{
+        color: #222;
+        background: white;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 2rem;
+        text-align: right;
+    }
+
+    nav ul {
+        display: none;
+    }
+
+    nav > a{
+        position: absolute;
+        left: 2rem;
+    }
+
+main section:first-of-type{
+    background: #F05F40;
+    padding-bottom: 10rem;
+    padding-top: 10rem;
+}
+
+main section:nth-child(2) article{
+    display: inline-block;
+    padding-left: 2rem;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+main h2{
+    padding-top: 15rem;
+    padding-bottom: 15rem;
+}
+figure {
+    float: left;
+    width: 33.333%;
+    position: relative;
+    
+}
+figcaption {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width:100%;
+    height: 100%;
+    background: rgba(240, 95, 64, .7);
+    
+}
+main section:last-of-type{
+    
+    background-color: black;
+    -webkit-text-fill-color: snow;
+
+}
+main section:last-of-type a{
+    background:snow;
+    width: 20rem;
+    line-height: 5rem;
+    border-radius: 2.5rem;
+    text-transform: uppercase;font-weight: bold;
+   display: inline-block;
+   margin-bottom: 4rem;
+}
+footer{
+    padding-bottom: 16rem;
+    padding-top: 16rem;
+}
+footer h2{
+    margin-bottom: 6rem;
+}
+footer p{
+    margin-bottom: 4rem;
+    margin-right: 40rem;
+    margin-left: 40rem;
+}
+footer article{
+    display: inline-block;
+    margin-left: 10rem;
+    margin-right:10rem;
+}
+.fa{
+    font-size: 5.5rem;
+    color: #F05F40;
+}
+a{
+    color: black;
+}
