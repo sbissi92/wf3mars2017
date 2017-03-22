@@ -1,0 +1,166 @@
+/*style reset*/
+
+*{
+    margin: 0;
+    padding: 0;
+
+/*faire intégrer le padding et le border dans la taille des boites*/
+-webkit-box-sizing: border-box;
+box-sizing:border-box;
+}
+/*1 rem=10 px*/
+html{
+    font-size:62.5%;
+}
+body{
+   
+    font-size: 1.5rem; 
+    font-weight: 400;
+    font-family: "Quicksand", sans-serif;
+    }
+    
+
+
+    /*style du header*/
+    header{
+        background-image: url(../img/back.jpg);
+        position: center;
+        margin-bottom: 3rem;
+        padding-top: 4rem;
+        padding-bottom: 5rem;
+        
+    }
+    header img{
+        width:100%;
+    }
+   
+   
+   li{
+       display:inline-block;
+       font-family: "Quicksqand",sans-serif;
+     
+       
+      
+   }
+   a{
+       text-decoration: none;
+       color:white;
+   }
+   li:first-child{
+       font-size: 3rem;
+       padding-right: 70rem;
+       padding-left: 30rem;
+       
+   }
+   li:not(:first-child){
+       padding-left: 2rem;
+   }
+   /*style body*/
+   body{
+       
+       font-size: 1.5rem;
+       font-weight: 400;
+       font-family: "roboto",sans-serif;
+   }
+   main{
+       font-size: 2.1rem;
+       padding-right: 20rem;
+       padding-left: 20rem;
+       font-weight: 400;
+   }
+   h1{
+       margin-bottom: 2rem;
+       font-size: 4rem;
+       font-weight: 500;
+       }
+    h1+img{
+       float: left;
+       width:15%;
+       border-radius: 50%;
+       margin-right: 3rem;
+
+    }
+   h2{
+       margin-top: 17rem;
+       background-color: #0b0b2f;
+       max-width: 30%;
+       color: white;
+       font-size: 3rem;
+       font-weight: 400;
+       text-align: center;
+       padding-top: 1rem;
+       padding-bottom: 1rem;
+       }
+
+   p:first-of-type{
+       padding-top: 2rem;
+      
+   }
+   article>p{
+     max-width: 40%;
+     display: inline-block;
+     padding-bottom: 10rem;
+   }
+  .mag{
+      margin-right: 4rem;
+  }
+  h3{
+      
+       background-color: #0b0b2f;
+       max-width: 40%;
+       color: white;
+       font-size: 3rem;
+       font-weight: 400;
+       text-align: center;
+       padding: 1rem;
+       display: inline;
+       }
+        h4{
+      
+       background-color: #0b0b2f;
+       max-width: 40%;
+       color: white;
+       font-size: 3rem;
+       font-weight: 400;
+       text-align: center;
+       padding: 1rem;
+       display: inline;
+      
+       }
+       
+       article{
+         display:inline-block;
+        
+        }
+        main article
+    
+  
+       form{
+            margin:2rem auto;
+        }
+        textarea,input:not([type="submit"]){
+            display:block;
+            width:30%;
+            border:none;
+            border-bottom: .1rem dotted gray;
+            padding:1rem;
+            margin-bottom: 2rem;
+        }
+        textarea{
+            min-height: 15rem;
+        }
+        form :last-child{
+            background: gray;
+            color:snow;
+            border:none;
+            padding: .5rem 1rem;
+        }
+
+
+
+   iframe{
+           display:inline-block;
+            width:49%;
+            min-height: 15rem;
+            border:none;
+  }
