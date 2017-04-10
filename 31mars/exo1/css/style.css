@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css?family=Kreon:700|Quicksand:400,500');
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+/*
+Style Reset
+*/
+    *{
+        padding: 0;
+        margin: 0;
+
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    html{
+        font-size: 62.5%;
+    }
+
+    body{
+        font-family: 'Quicksand', sans-serif;
+        font-weight: 400;
+        font-size: 1.5rem; /* => 15px */
+        text-align: center;
+    }
+
+    h1, h2, h3{
+        font-family: 'Kreon', serif;
+        font-weight: 700;
+    }
+
+
+
+/*
+Style header
+*/
+    
+
+
+    header, footer{
+        color: white;
+        background: salmon;
+        padding: 2rem;
+        margin-bottom: 4rem;
+        position: relative;
+    }
+
+    .fa-bars {
+        font-size: 2rem;
+        padding-top: .6rem;
+        position: absolute;
+        background: salmon;
+        border: .3rem solid white;
+        width: 4rem;
+        height: 4rem;
+        left: 50%;
+        bottom: 0;
+        cursor: pointer;
+
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+
+        -webkit-transform: translate(-50%, 100%);
+        transform: translate(-50%, 100%);
+    }
+
+    h1 span{
+        font-family: 'Quicksand', sans-serif;
+        font-weight: 500;
+        font-size: .5em;
+        display: block;
+        margin-bottom: 1rem;
+    }
+
+    nav ul{
+        height: 0;
+        overflow: hidden;
+        list-style: none;
+
+        -webkit-transition: all 1s;
+        transition: all 1s;
+    }
+
+    .toggleBurger{
+        height: 15rem;
+    }
+
+    nav a{
+        font-weight: 500;
+        color: white;
+        text-decoration: none;
+
+        -webkit-transition: all .5s;
+        transition: all .5s;
+    }
+
+    nav li{
+        background: rgba(255, 255, 255, .5);
+        padding: 1rem;
+        margin-bottom: .5rem;
+
+        -webkit-transition: all .5s;
+        transition: all .5s;
+    }
+
+    .active{
+        background: white;
+    }
+
+    .active a{
+        color: salmon;
+    }
+
+
+
+
+/*
+Style main
+*/
+    h2{
+        color: salmon;
+    }
+
+    h2:after{
+        content: '';
+        display: block;
+        width: 5rem;
+        height: .2rem;
+        margin: 1rem auto 2rem auto;
+        border-bottom: .2rem dotted black;
+    }
+
+    h3{
+        margin-bottom: 1rem;
+    }
+
+    main, h1, nav{
+        max-width: 85rem;
+        margin: auto;
+        position: relative;
+    }
+
+
+
+/*
+Style footer
+*/
+    footer{
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        margin-bottom: 0;
+    }
+
+
+
+
+/*
+Requête media
+*/
+    @media screen and (min-width: 850px){
+
+        /* Style header */
+        header{
+            text-align: left;
+        }
+
+        .fa-bars{
+            display: none;
+        }
+
+        nav ul {
+            height: auto;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+
+        nav li{
+            display: inline-block;
+        }
+
+        nav li:not(:last-child){
+            margin-right: .5rem;
+        }
+
+    }

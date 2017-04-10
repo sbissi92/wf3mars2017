@@ -1,0 +1,133 @@
+/*
+Style Reset
+*/
+    /* Sélectionner TOUTES les balises du DOM */
+    *{
+        /* Supprimer les marges intérieures */
+        padding: 0;
+        /* Supprimer les marge extérieures */
+        margin: 0;
+    }
+
+    /* Ramener la valeur de 1rem à 10px */
+    html{
+        font-size: 62.5%;
+    }
+
+    body{
+        font-size: 1.5rem; /* 1.5rem = 15px */
+    }
+
+    section {
+        margin-bottom: 4rem;
+    }
+
+    
+
+/*
+em/rem
+*/
+
+    h1{
+        font-size: 3rem; /* 3 fois le font-size de HTML (root) */
+    }
+
+    h1 b{
+        /* La taille de la font soit toujours 2 fois plus petite que son parent direct */
+        font-size: .5em;
+    }
+
+
+/*
+Style header
+*/
+    header{
+        /* Ajouter une bordure de 1px rouge */
+        border: .5rem solid red;
+
+        /* Ajouter une marge à l'intérieur de la balise */
+        padding: 2rem;
+
+        /* Ajouter une marge à l'exterieur de la balise */
+        margin: 2rem;
+    }
+
+    /* Modifier le type des balises li */
+    li{
+        display: inline-block;
+    }
+
+
+
+/*
+Style largeur site
+*/
+    /* Limiter la largeur de header, main et footer à 950px */
+    header, main, footer{
+        max-width: 85rem;
+
+        /* Centrer une balise de type block réduite en largeur */
+        margin: 2rem auto;
+    }
+
+
+/*
+Mise en forme typographique
+*/
+    .presentation{
+        /* Modifier la famille de caractères de la font */
+        font-family: "Arial", sans-serif;
+
+        /* Modifier la taille de la font */
+        font-size: 1.7rem;
+
+        /* Modifier l'interlignage */
+        line-height: 2em;
+
+        /* Modifier la graisse de la font */
+        font-weight: bold;
+
+         /* Ajouter une ombre portée à la font */
+         text-shadow: 0 0 .5rem blue;
+
+         /* Modifier la casse de la font */ 
+         text-transform: uppercase;
+
+         /* Modifier le style de la font (italic) */
+         font-style: italic;
+
+         /* Modifier la décoration de la font */
+         text-decoration: underline;
+
+         /* Modifier la couleur de la font */
+         color: white;
+
+         padding: 2rem;
+         background-color: red;
+         margin: 4rem auto;
+    }
+
+
+/*
+Utilisation des couleurs
+*/
+    #portfolio{
+        
+        background-color: #1582a0; /* Référence hexadecimale */
+        color: white; /* Nom intelligible */
+
+        text-align: center; /* Agit sur les texte et sur les balises inline (enfant) */
+
+    }
+
+    #portfolio article{
+        /* Utiliser RGBA pour modifier l'opacité de la courleur */
+        background-color: rgba(255, 255, 255, .5);
+
+        color: #000;
+        padding: 2rem;
+        margin: 1rem;
+
+        /* Faire en sorte d'afficher les articles sur 3 colonnes */
+        display: inline-block;
+    }

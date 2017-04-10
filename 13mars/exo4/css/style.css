@@ -29,20 +29,41 @@ section{
     left: 0;
 
     /* Appliquer l'animation */
+    -webkit-animation-name: moveMySection;
     animation-name: moveMySection;
-    animation-duration: 1S;
+
+    -webkit-animation-duration: 3s;
+    animation-duration: 3s;
+
+    /* Modifier la courbe d'animation */
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+
+    /* Ajouter un délai avant l'animation */
+    -webkit-animation-delay: 2s;
+    animation-delay: 2s;
+
+    /* Gérer le nombre de boucle */
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+
+    /* Gérer le sens de l'animation */
+    -webkit-animation-direction: alternate;
+    animation-direction: alternate;
+}
+
+section:nth-child(2){
+    background: blue;
+
+    /* Gérer le sens de l'animation */
+    -webkit-animation-direction: alternate-reverse;
+    animation-direction: alternate-reverse;
+}
+
+section:nth-child(3){
+    background: green;
 
     /* Modifier la courbe d'animation */
     -webkit-animation-timing-function: ease-in-out;
-    animation-timing-function:ease-in-out;
-    /*ajouter un délai avant l'animation*/
-    animation-delay: 2s;
-    /*gérer le nombre de boucle*/
-    animation-iteration-count: infinite;
-    /*G2RER LE SENS DE L4ANIMATIONN*/
-    animation-direction: alternate-reverse;
-    -webkit-direction: 
-}
-section:nth-child(3){
-    background: greenyellow;
+    animation-timing-function: ease-in-out;
 }
