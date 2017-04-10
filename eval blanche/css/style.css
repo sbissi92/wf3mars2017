@@ -1,4 +1,6 @@
 @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);
+@import url('https://fonts.googleapis.com/css?family=Kaushan+Script|Merriweather:400i|Roboto:400,500,800');
+
 
 *{
         margin: 0;
@@ -13,6 +15,7 @@
 
     body{
         font-size: 1.5rem;
+        font-family: 'Merriweather', serif;
        }
 
       
@@ -30,7 +33,7 @@
      header{
         text-align: center;
         background-image: url(../img/header-bg.jpg);
-        padding-bottom: 42rem;
+        padding-bottom: 30rem;
         background-position: center;
         background-size: cover;  
            
@@ -38,7 +41,7 @@
 
     header p{
     text-transform: uppercase;
-    color: yellow;  
+    color: #FACE4C;  
     padding-top: 3rem;
     display: inline-block;
     margin-right: 12rem;
@@ -46,6 +49,7 @@
 
     ul{   
         font-size: x-small;
+        list-style:none;
     }
 
 
@@ -66,27 +70,79 @@
         text-decoration: none;
         color: white;
         text-transform: uppercase;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 400;
     }
 
      h4{
         color: white;
-        margin-top:6rem;
-        font-size: 2.5rem;
+        margin-top:25rem;
+        font-size: 2rem;
     }
     h1{
         color: white;
-        margin-top: 3rem;
-        font-size: 3rem;
-        margin-bottom: 3rem;
+        margin-top: 5rem;
+        font-size: 4rem;
+        margin-bottom: 6rem;
     }
 
     h1 ~ a{
-    background-color: yellow;
+    background-color: #FACE4C;
     padding: 1rem;
     border-radius: .5rem;
+    
     }
 
+    figure {
+        display: inline-block;
+        width: 33,33%;
+        position: relative;
+    }
 
-
+    figcaption{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 1rem;
     
+    }
+    footer{
+         font-family: 'Roboto', sans-serif;
+         font-weight: 400; 
+    }
+    
+    .error{
+        border: .2rem red;
+    }
+
+    div{
+        position:fixed;
+        top:0;
+        left:0;
+        width: 100%;
+        height: 100%;
+        background-color:rgba(0, 0, 0, .7);
+        /*pour l'animation*/
+        display:none;
+        
+    }
+    div section{
+        background-color: white;
+        padding:2rem;
+        border-radius: .5rem;
+        position:relative;
+    }
+    .fa-times{
+        position: absolute;
+        top: .5rem;
+        right: .5rem;
+    }
+       
+    
+
+
+
+
+
 
