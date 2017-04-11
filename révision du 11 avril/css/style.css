@@ -60,3 +60,28 @@ Modal
         padding: 2rem;
         margin: 5rem auto;
     }
+
+
+    /*pour les écrans d'une taille minimale de 550px, mettre les section sur 2 colonnes
+    */
+
+
+    @media screen and (min-width: 550px){
+        main section{
+            display: inline-block;
+            width: 49%;
+            vertical-align: top;
+
+        }
+/*pour les écrans d'une taille minimale de 850px, mettre les section sur 3 colonnes
+    */
+
+    }
+
+     @media screen and (min-width: 850px){
+
+          main section{
+            width: 33%;
+        }
+
+     }
