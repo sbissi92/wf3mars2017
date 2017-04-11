@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css?family=Merienda');
+
+/*style Reset*/
+
+*{
+        margin: 0;
+        padding: 0;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    html{
+        font-size: 62.5%;
+    }
+
+    body{
+        font-size: 1.5rem;
+        text-align: center;
+        font-family:'Merienda', cursive;
+       }
+
+    img{
+        max-width: 100%;
+        }
+
+        /*style header*/
+
+    header{
+        background-color: #061339;
+        padding: 2.5rem;
+        text-align: left;
+        color: white;
+        }
+
+        h3{
+            margin-left: 22rem;
+        }
+
+
+        /*style main*/
+
+        h1{
+            color: #FFF;
+            padding-top: 7rem;
+            font-size: 3rem;
+        }
+
+        section:first-of-type{
+           background-image: url(../img/background.jpg);
+           padding-bottom: 6rem;
+           
+        }
+
+        #first{
+            display: inline-block;
+            width: 33,33%;
+            position: relative;
+            vertical-align: top;
+            margin-top: 4rem;
+           
+        }
+        #second{
+             display: inline-block;
+             width: 33,33%;
+             position: relative;
+             margin-top: 4rem;
+        }
+        label{
+            display:block;
+        }
+
+        input{
+            display:block;
+            background-color: limegreen;
+            color: white;
+            border:limegreen;
+            -webkit-border-radius: .2rem;
+            border-radius: .2rem;
+            padding: .5rem;
+            width: 30rem;
+        }
+        form, h2{
+            margin-right: 3rem;
+        }
+        h2{
+            color: #2F4073;
+            margin-bottom: 2rem;
+        }
+        form{
+            border:solid .1rem lightgray;
+            -webkit-border-radius: .5rem;
+            border-radius: .5rem;
+        }
+        
+        select{
+            width: 30rem;
+        }
+        textarea{
+            width: 30rem;
+            height: 30rem;
+        }
+
+        footer{
+            background-color: #061339;
+            padding-bottom: 8rem;
+            color: white;
+            text-align: right;
+            padding-right: 2rem;
+        }
+        
+        h2{
+            padding-top: 2rem;
+            padding-left: 7rem;
+        }
+
+       p{
+           padding-left: 7rem;
+       }
+
+       
+        #fourth{
+            background-color: #7885A5;
+        }
+       
+       #fourth:hover{
+           background-color: #061339;
+       }
+       section:last-of-type{
+           background-color:#DEDEDE;
+           padding-bottom: 3rem;
+           margin-top: 3rem;
+       }
+
+        .error{
+         border:solid .1rem red;
+        }
+
+        #secondSection article{
+            display: inline-block;
+            width: 48%;
+        }
+
+       @media screen and (max-width: 350px){
+
+            #secondSection article{
+            display: inline;
+            
+
+       }
+
+
