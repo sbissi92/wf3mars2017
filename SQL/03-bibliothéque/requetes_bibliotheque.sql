@@ -127,3 +127,70 @@ FROM abonne a
 INNER JOIN emprunt e
 ON a.id_abonne = e.id_abonne
 GROUP BY a.prenom;
+
+-- afficher qui a emprunté quel livre et à quelle date de sortie?
+SELECT a.prenom, e.date_sortie, l.titre
+FROM abonne a
+INNER JOIN emprunt e
+On a.id_abonne = e.id_abonne
+INNER JOIN livre l
+ON e.id_livre = l.id_livre;
+
+-- afficher les prenoms des abonnes avec les id livres qu'ils ont empruntés'
+SELECT a.prenom, e.id_livre
+FROM abonne a
+INNER JOIN emprunt e
+ON a.id_abonne = e.id_abonne;
+
+
+-- *************************
+-- chap3:jointure externe 
+-- *************************
+-- une jointure externe permet de faire des requetes sans correspondance exigée entre les valeurs requetés.
+-- exercice
+-- AJOUTER vous dans la table abonne:
+INSERT INTO abonne (prenom) VALUES('moi');
+
+-- si on relance la derniére requete de jointure interne, nous n'apparaissons pas dans la liste car nous n'avons pas emprunté de livre.
+-- pour y remédier ,nous faisons une jointure esterne:
+SELECT a.prenom,e.id_livre
+FROM abonne a
+LEFT JOIN emprunt e
+ON e.id_abonne = a.id_abonne;
+
+-- la clause LEFT JOIN permet de rapatrier toutes les données dans la table considérée comme étant à auche de l'instruction LEFT JOIN (donc abonne dans notre cas),sans correspondance exigée dans l'autre table(emprunt ici).
+
+-- voici le cas avec un livre supprimé de la bibliothéque (le livre une vie est supprimé):
+DELETE FROM livre WHERE id_livre = 100;
+
+-- on visualise les emprunts avec une jointure interne:
+SELECT emprunt.id_emprunt, livre.titre
+FROM emprunt
+INNER JOIN livre
+On emprunt.id_livre = livre.id_livre;
+-- on ne voit pas dans cette requete le livre"une vie "qui a été supprimé.
+
+-- on fait la meme chose avec une jointure externe:
+SELECT emprunt.id_emprunt, livre.titre
+FROM emprunt
+LEFT JOIN livre
+On emprunt.id_livre = livre.id_livre;
+-- ici tous les emprunts sont affichés, y compris eux pour les quelles le titre est supprimé et remplacé par null.
+
+
+
+
+
+-- *****************
+-- chap: union
+-- *****************
+-- UNION PERMET DE FUSIONNER LE R2SULTAT DE DEUX REQUETES DANS LA MEME LISTE DE resultat
+-- ex: Si on supprime  guillaume de la table abonne ,on peut afficher à la fois tous les livres empruntés ,y compris ceux par des lecteurs désinscrits(on affiche null à la place de guillaume ) et tous les abonnés y compris ceux qui n'ont rien emprunté (on affiche NULL dans l'id_livre pour labonné 'moi'):
+
+-- suppression:
+DELETE FROM abonne WHERE id_abonne = 1;
+
+-- requete sur les livres empruntés avec UNION:
+(SELECT abonne.prenom, emprunt.id_livre FROM abonne LEFT JOIN emprunt ON abonne.id_abonne = emprunt.id_abonne)
+UNION
+(SELECT abonne.prenom, emprunt.id_livre FROM abonne RIGHT JOIN emprunt ON abonne.id_abonne = emprunt.id_abonne);
