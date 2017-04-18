@@ -29,4 +29,4 @@ SELECT CONCAT_WS('-','a','b','c'); --concat with separator: concaténétion avec
 SELECT SUBSTRING('bonjour', 1, 3); --affiche 'bon':compte 3 à partir de la position 1
 SELECT TRIM('   bonjour    '); --supprime les espaces avant et aprés la chaine de caractéres
 
--- sources pour trouver des fonctions sql: sql.sh!
+-- sources pour trouver des fonctions sql: sql.sh
