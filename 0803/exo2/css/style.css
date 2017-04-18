@@ -1,0 +1,107 @@
+/*style recet*/
+/*selectionner Toutes les balises du DOM */
+*{
+/*supprimer les images intérieures*/
+padding: 0;
+/*supprimer les marges extérieures*/
+margin: 0;
+}
+/* ramener la valeur de lrem à 10px*/
+html{
+    font-size: 62,5%;
+}
+body{
+    font-size: 1,5rem; /* 1,5rem = 15px */
+    
+}
+
+
+
+/*limiter largeur site*/
+
+ /*limiter la largeur de header,main,et footer à 950px*/
+ header,main,footer{
+     max-width:95rem;
+     /*centrer une balise de type block réduite en largeur*/
+     margin: 2rem auto;
+ }
+ section{
+     margin-bottom: 20px;
+ }
+/*mise en forme typographique*/
+.presentation{
+    /*modifier la famille de caractére de la font*/
+
+    font-family: "arial","sans serif";
+    /*Modifier la taille de la font*/
+    font-size: 1,7rem;
+    /*modifier l'inter-lignage*/
+    line-height: 2em;
+
+    /*modifier la graisse de la font*/
+    font-weight: bold;
+
+    /*ajouter une ombre portée à la font*/
+    text-shadow: .5rem .5rem .5rem cornflowerblue;
+
+    /*modifier la casse(maj ou min ) de la font*/
+    text-transform: uppercase;
+    /*modifier le style de la font*/
+font-style: italic;
+/*modifier la décoration de la font*/
+text-decoration: underline;
+
+/*modifier la couleur de la font*/
+color: ivory;
+
+padding: 2rem;
+background-color: aliceblue;
+margin: 4rem auto;
+
+}
+
+
+
+
+
+
+
+h1 {
+font-size: 3rem;
+/*3 fois le font size de html (root) */
+}
+h1 b{
+    /*la taille de la font soit toujours 2 fois plus petite que son parent direct */
+    font-size:.5em
+}
+/*
+style header*/
+header{
+    /*ajouter une bordure de 1px rouge*/
+    border: 1rem solid aquamarine;
+    /*ajouter une marge à l'intérieur de la balise*/
+    padding: 2rem;
+    
+/*ajouter une marge à l'extérieur de la balise*/
+margin: 2rem;
+
+}
+/*modifier les types des balises li*/
+ li{
+     display: inline-block;
+ }
+/*utilisation des couleurs*/
+#portfolio{
+    background-color:aliceblue;
+    color:cornflowerblue;
+    padding-bottom: 2rem;
+}
+#portfolio article{
+    background-color:lightyellow;
+
+    padding: 2rem;
+    margin: 1rem;
+    /*faire en sorte d'afficher les articles sur 3 colonnee*/
+    display: inline-block;
+    text-align: center;
+}

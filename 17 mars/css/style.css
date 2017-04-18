@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding:0;
+}
+ 
+html{
+    background-image: url(../img/bg.jpg)
+}
+nav ul{
+        text-align: center;
+        color: #222;
+        text-transform: uppercase;
+        border-bottom: .1rem solid rgba(255, 255, 255, .3);
+        background: snow;
+        position: fixed;
+        width: 100%;
+         }
+         h1{
+             text-align: center;
+             color: snow;
+             text-transform:uppercase;
+             padding-bottom: 1rem;
+             padding-top: 2rem;
+         }
+         header p{
+             text-align: center;
+             color: snow;
+            padding-bottom: 2rem;
+            padding-top: 1rem;
+         }
