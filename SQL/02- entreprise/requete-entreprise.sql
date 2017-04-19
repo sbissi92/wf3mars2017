@@ -1,6 +1,6 @@
 -- ouvrir la console SQL sous XAMPP et tapez:
-        -- cd c:\xampp\mysql\bin
-        --   mysql.exe -u root --password
+--   cd c:\xampp\mysql\bin
+--   mysql.exe -u root           --password
 
 
 

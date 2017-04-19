@@ -1,0 +1,31 @@
+**********************************
+présentation de PHPMyAdmin (PMA)
+**********************************
+
+qu'est ce que phpmy admin:
+PMA est une interface d'administration pour le SGBD MySQL. il est écrit en PHP et s'appuie sur le serveur HTTP Apache (serveur web).
+il permet d'administrer les éléments suivants: 
+-les BDD
+-les tables et leurs champs
+-les index,les clés primaires et étrangéres
+-les utilisateurs de la base et leurs permissions
+-exporter/importer les données dans divers formats
+
+vous pourriez remplacer PMA par d'autres interfaces d'administration de BDD: DbNinja, SQL , Buddy, MyWebSQL, PHPMiniAdmin.....
+
+---------------------------------------------
+Définition des types de champ :
+        -INT pour nombre entier (taille maxi de 11 caractéres  pour une valeur entre -2 147 354 786 et 2 147 789 789)
+        -TEXT pour chaine de caracteres de longueur variable (taille maxi 65535 caracteres)
+        -VARCHAR pour chaine de caractere de longueur variable (taille maxi de 255 caractéres)
+        -DATE au format YYYY-MM-BDD
+        -DATETIME au format YYYY-MM-DD HH:II:SS
+        -FLOAT pour les nombres décimaux
+        -ENUM pour donner une liste de valeurs selon la syntaxe 'm','f'
+
+Définition des attributs:
+-BINARY: pour rendre le champ sensible à la casse
+-Unsigned: pas de chiffre négatif
+-Unsigned Zerofill: pas de chiffre négatif + compléte avec 0 (ex: "12" en INT(4) donnera "0012")
+
+
