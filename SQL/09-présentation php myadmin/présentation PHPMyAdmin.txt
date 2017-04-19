@@ -28,4 +28,25 @@ Définition des attributs:
 -Unsigned: pas de chiffre négatif
 -Unsigned Zerofill: pas de chiffre négatif + compléte avec 0 (ex: "12" en INT(4) donnera "0012")
 
+-----------------------------------------------
 
+IMPORT/EXPORT de base de donnée:
+-via PHPMyAdmin: avec les onglets import ou export correspondants.
+
+-en ligne de commande:
+Démarrer > Exécuter > cmd
+
+Puis :
+
+-Pour faire une export de BDD:
+cd c:\xampp\mysql\bin 
+mysqldump -u root entreprise > monFichier.sql 
+
+
+==>le fichier d'export appelé monFichier.sql se trouve par défaut dans le dossier c:\xampp\mysql\bin.
+
+-pour faire un import en bdd:
+1°créer une base de données d'accueill: import_entreprise
+2°mettre le fichier d'import dans le dossier par défaut c:\xampp\mysql\bin 
+3°saisir dans l'invite de commandes:
+mysql -u root import_entreprise2 < monFichier.sql 
