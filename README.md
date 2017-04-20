@@ -1,1 +1,0 @@
-# Support de cours Julien Noyer
