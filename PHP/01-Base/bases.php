@@ -218,6 +218,19 @@ if (isset($var2)) echo 'var2 existe bien <br>';
 
 // phpinfo();
 
+
+// -----------------------------------------------------------------
+// entrer une valeur dans une variable sous condition (php7):
+$var1 = isset($maVar) ? $maVar : 'valeur par défaut'; //dans cette ternaire on affecte la valeur de $maVar à $var1 si elle existe.si  celle ci n'existe pas on lui affecte valeur par défaut.
+echo $var1 . '<br>';  //affiche valeur par défaut
+
+// EN VERSION PHP7:
+$var2 = $maVar ?? 'valeur par défaut'; //on fait exactement la meme chose mais en plus court : le "??" signifie "soit l'un soit l'autre", "prend la premiére valeur qui existe"
+echo $var2 . '<br>';
+
+$var3 = $_GET['pays'] ?? $GET_['ville'] ?? 'pas d\'info'; //soit on prend le pays s'il existe ,sinon on prend la ville si elle existe si non la ville soit pas d'info.
+echo $var3 . '<br>';
+
 // ----------------------------------
 echo '<h2> condition switch </h2>';
 // ----------------------------------
@@ -318,3 +331,8 @@ echo $date->format('Y-m-d');
 // on construit un objet "date avec le mot new , en indiquant la date qui nous interesse entre parenthéses. $date est donc un objet "date".
 // cet objet bénéficie de méthodes (=fonctions) offertes par la classe : il y a entre autres, la méthode format() qui permet de modifier le format d'une date.pour appeler cette méthode sur l'objet $date, on utilise la fléche ->.
 
+
+
+// -----------------------------------------------------------------
+// entrer une valeur dans une variable sous condition (php7):
+$var1 = isset($maVar) ? $maVar : 'valeur par défaut';
