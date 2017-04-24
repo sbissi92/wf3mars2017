@@ -336,3 +336,324 @@ echo $date->format('Y-m-d');
 // -----------------------------------------------------------------
 // entrer une valeur dans une variable sous condition (php7):
 $var1 = isset($maVar) ? $maVar : 'valeur par défaut';
+
+
+
+
+
+
+
+
+
+//-------------------------------------------
+echo '<h2> Les fonctions utilisateurs </h2>';
+//-------------------------------------------
+// Les fonctions qui ne sont pas prédéfinies dans le langage sont déclarées puis exécutées par l'utilisateur.
+// Déclaration d'une fonction :
+function separation() {
+    echo '<hr>';    // simple fonction permettant de tirer un trait dans la page web
+}
+// Appel de la fonction par son nom :
+separation();   // ici on exécute la fonction
+// ----------
+// Fonction avec arguments : les arguments sont des paramètres fournis à la fonction qui lui permettent de compléter ou modifier le comportement initialement prévu.
+function bonjour($qui) {    // $qui apparaît ici pour la première fois. Il s'agit d'une variable de réception qui reçoit la valeur d'un argument
+    return 'Bonjour ' . $qui . '<br>'; // return permet de renvoyer ce qui suit à l'endroit où la fonction est appelée
+    echo 'cette ligne ne sera pas exécutée'; // après un return on quitte la fonction donc on n'exécute pas le code qui suit
+}
+// Appel de la fonction :
+echo bonjour('Pierre'); // on appelle la fonction en lui donnant le string 'Pierre' en argument -> affiche 'Bonjour Pierre'
+$prenom = 'Etienne';
+echo bonjour($prenom); // l'argument peut être une variable : affiche 'Bonjour Etienne'
+// --------------
+// Exercice
+function appliqueTva($nombre) {
+    return $nombre * 1.2;
+}
+// Ecrivez une fonction appliqueTva2 sur la base de la précédente mais en donnant la possibilité de calculer un nombre avec le taux de notre choix.
+function appliqueTva2($nombre, $taux){ // on ne peut pas redéclarer une fonction avec le même nom
+    echo 'Ma TVA est de ';
+    return $nombre * $taux;
+}
+echo appliqueTva2(5 , 1.6) . '<br>'; // lorsqu'une fonction attend des arguments, il faut obligatoirement les lui donner
+// --------------
+// Exercice
+function meteo($saison, $temperature){
+    echo "Nous sommes en $saison et il fait $temperature degré(s) <br>";
+}
+meteo('hiver', 2);
+meteo('printemps', 7);
+// Créer une fonction meteo2 qui permet d'afficher "au printemps" quand il s'agit du printemps
+// function meteo2($saison, $temperature){
+//     if($saison == 'printemps'){
+//     echo "Nous sommes au $saison et il fait $temperature degré(s) <br>";
+    
+//     }else{
+//     echo "Nous sommes en $saison et il fait $temperature degré(s) <br>";
+    
+//     }
+// }
+function meteo2($saison, $temperature){
+    if($saison == 'printemps'){
+        $article = 'au';
+    
+    }else{
+        $article ='en';
+        
+    }
+    echo "Nous sommes $article $saison et il fait $temperature degré(s) <br>";
+   
+}
+meteo2('hiver', 2);
+meteo2('printemps', 7);
+// $saison = 'printemps';
+// $temperature =5;
+// echo (($saison == 'printemps') ? "Nous sommes au $saison " : "Nous sommes en $saison ") . ("et il fait $temperature degré(s) <br>");
+function meteo3($saison, $temperature){
+    $article = ($saison == 'printemps') ? 'au' : 'en';
+     echo "Nous sommes $article $saison et il fait $temperature degré(s) <br>";
+}
+meteo3('hiver', 0);
+meteo3('printemps', 10);
+// Exercice : 
+function prixLitre(){
+    return rand(1000, 2000)/1000;   // détermine un prix aléatoire entre 1 et 2€
+    }  
+// Ecrivez la fonction factureEssence() qui calcule le prix total de votre facture d'essence en fonction du nombre de litres que vous lui donnez. Cette fonction retourne la phrase "Votre facture est de X euros pour Y litres d'essence" (X et y sont variables).
+// Dans cette fonction , utilisez la fonction prixLitre() qui vous retourne le prix du litre d'essence.
+function factureEssence($litre){
+    $prixTotal = prixLitre() * $litre;
+    echo "Votre facture est de $prixTotal € pour $litre  litres d'essence";
+}
+factureEssence(30);
+//-------------------------------------------
+echo '<h2> Les variables locales et globales </h2>';
+//-------------------------------------------
+function jourSemaine() {
+    $jour = 'vendredi';    // ici dans la fonction nous sommes dans un espace LOCAL. La variable $jour est donc LOCALE.
+    return $jour;
+}
+//  A l'extérieur de la fonction je suis dans l'espace GLOBAL.
+// echo $jour;    // je ne peux pas utiliser une variable locale dans l'espace global
+echo jourSemaine() . '<br>';    // on peut cependant récupérer la valeur de $jour grâce au return qui est au sein de la fonction et à l'appel de cette fonction
+// -------
+$pays = 'France';   // variable globale
+function affichagePays(){
+    global $pays;   // le mot clé global permet de récupérer une variable provenant de l'espace global au sein de l'espace local de la fonction
+    echo $pays; // on peut donc utiliser cette variable $pays
+}
+affichagePays();
+//-------------------------------------------
+echo '<h2> Les structures itératives : boucles </h2>';
+//-------------------------------------------
+// boucle while
+$i = 0;     // valeur de départ de la boucle
+while ($i < 3) {    // tant que $i est inférieur à 3 , j'exécute les accolades qui suivent'
+    echo "$i---";
+    $i++;         // on n'oublie pas d'incrémenter i pour que la boucle ne soit pas infinie (il faut que la condition puisse devenir false à un moment donné) 
+}
+echo'<br>';
+$t = 0;
+while ($t < 3){
+    if($t < 2){
+        echo "$t---";    
+    }else{
+        echo "$t";
+    }
+    $t++;
+}
+echo'<br>';
+// --------
+// Exercice : à l'aide d'une boucle while afficher dans un sélecteur les années depuis l'année en cours moins 100 ans et jusqu'à l'année en cours : 1917 => 2017
+$year = 2017;
+echo '<select>';
+while($year > 1916){
+    echo "<option>$year</option>";
+    $year--;
+}
+echo '</select>';
+echo '<br>';
+// ------- 
+$year = date('Y') - 100;
+$year = 2017;
+echo '<select>';
+while($year >= date ('Y')) {
+    echo "<option>$year</option>";
+    $year--;
+}
+echo '</select>';
+// ----------
+//  Boucle do while
+//  La boucle do while a la particularité de s'exécuter au moins une fois, puis tant que la condition de fin est vraie.
+echo '<br> Boucle do while<br>';
+do {
+    echo 'un tour de boucle';
+} while (false);    // on met la condition pour exécuter les tours ici à la place de false. Dans ce cas précis, on voit que l'on effectue un tour de boucle bien que la condition soit fausse.
+// Notez la présence du ";" à la fin de la boucle do while (contrairement aux autres boucles itératives).
+// ----------
+//  Boucle for :
+echo '<br>';
+for ($j = 0; $j < 16; $j++) { // initialisation de la valeur de départ; condition d'entrée dans la boucle; incrémentation ou (décrémentation)
+    print $j .'<br>';
+}
+// ----------
+// Exercies :
+// 1- Faire une boucle qui affiche 0 à 9 sur la même ligne
+echo '<br>';
+for ($h = 0; $h < 10; $h++){
+    print $h;
+}
+// 2- Faites la même chose mais dans un tableau html
+echo '<br>';
+    echo '<table border ="1">';
+        echo '<tr>';
+            for ($h = 0; $h < 10;$h++){
+                print "<td>$h</td>";
+            }              
+        echo '</tr>';
+    echo '</table>';
+// ------------------- Faire un tableau HTML de 10 lignes sur 10 à partir du tableau précédent
+echo '<br>';
+    echo '<br>';
+    echo '<table border ="1">';
+        for($k = 1; $k <=10; $k++){
+            echo "<tr>";
+            for ($h = 0; $h < 10; $h++){
+                print "<td>$h</td>";
+            } 
+            echo '</tr>';
+        }
+                    
+    echo '</table>';
+// ------------------- Faire un tableau HTML de 10 lignes sur 10 à partir du tableau précédent
+echo '<br>';
+    echo '<br>';
+    echo '<table border ="1">';
+        // on fait une boucle pour les lignes :
+        $k = 1; 
+        while ($k <=10) {
+            echo "<tr>";
+            // on fait une boucle pour les colonnes :
+            for ($h = 0; $h < 10; $h++){
+                print "<td>$h</td>";
+            } 
+            $k++;
+            echo '</tr>';
+        }
+                    
+    echo '</table>';
+    // -------------------Compter les cases jusqu'à 90
+echo '<br>';
+$contenu = 0;
+    echo '<br>';
+    echo '<table border ="1">';
+        for($k = 1; $k <=10; $k++){
+            echo "<tr>";
+            
+            for ($h = 0; $h < 10; $h++){
+                print "<td>$contenu</td>";
+                $contenu++;
+            } 
+            echo '</tr>';
+        }
+                    
+    echo '</table>';
+//-------------------------------------------
+echo '<h2> Les arrays ou tableaux </h2>';
+//-------------------------------------------
+// On peut stocker dans un array une multitide de valeurs quelque soit leur type.
+$liste = array('Grégoire', 'Nathalie', 'Emilie', 'François', 'Georges');    // déclaration d'un array appelé $liste contenant des prenoms
+// echo $liste;    // ereur car on ne peut pas afficher directement le contenu d'un array
+echo '<pre>'; var_dump($liste); echo '</pre>';
+echo '<pre>'; print_r($liste); echo '</pre>';
+// ces deux instructions d'affichage permettent d'indiquer le type de l'élément mis en argument, ainsi que son contenu. Les balises créées servent à faire une mise en forme. Notez que ces deux instructions ne sont utilisées qu'en phase de développement.
+// Autre moyen d'affecter des erreurs dans un tableau :
+$tab[] = 'France';    // permet d'ajouter la valeur 'France' dans le tableau $tab
+$tab[] = 'Italie';
+$tab[] = 'Espagne';
+$tab[] = 'Portugal';
+print_r($tab);    // pour voir le contenu du tableau
+// Pour afficher la valeur 'Italie' qui se situe à l'indice 1 :
+echo $tab[1] . '<br>';  // affiche Italie
+// Tableau associatif : tableau dont les indices sont littéraux
+$couleur = array("j" => "jaune", "b" =>"bleu", "v" =>"vert");   // on peut choisir le nom des indices
+// Pour accéder à un élément du tableau associatif :
+echo 'La seconde couleur de notre tableau est le  ' . $couleur['b'] . '<br>';   // affiche bleu
+echo "La seconde couleur de notre tableau est le $couleur[b] <br>" ;    // affiche bleu. Un array écrit dans des guillements perd ses quotes autour de son indice
+// ----------------
+// Mesurer la taille d'un array :
+echo 'Taille du tableau : ' . count($couleur) . '<br>'; // compte le nombre d'élément dans l'array $couleur, ici 3
+echo 'Taille du tableau : ' . sizeof($couleur) . '<br>'; // compte le nombre d'élément dans l'array $couleur, ici 3
+// ----------------
+// Transformer un array en string :
+$chaine = implode('-', $couleur);   // implode() rassemble les éléments d'un array en une chaîne séparés par le séparateur '-' ici
+echo $chaine. '<br>';
+$couleur2 = explode('-', $chaine);  // transforme une chaîne en array en séparant les éléments grâce au séparateur indiqué (ici un "-"). $couleur2 est un array. $couleur2 est un array aux indices numériques.
+print_r($couleur2);
+// ----------------
+echo '<h2>La boucle foreach pour parcourir les arrays</h2>';
+// La boucle foreach est un moyen simple de passer en revue un tableau. Elle fonctionne uniquement sur les arrays et les objets. Et elle a l'avantage d'être "automatique" , s'arrêtant quand il n'y a plus d'éléments.
+foreach($tab as $valeur) {  // la variable $valeur (que l'on appelle comme on veut) récupère à chaque tour de boucle les valeurs qui sont parcourues dans l'array $tab. ["parcourt l'array $tab par ses valeurs"]
+    echo $valeur .'<br>';
+}
+foreach($tab as $indice => $valeur) {   // on parcourt l'array $tab par ses indices auxquelles on associe les valeurs
+// quand il ya 2 variables la 1 ere parcourt les colonne des indices et la seconde la colonne des valeurs .ces variables peuvent avoir n'importe quel nom.
+    echo $indice . ' correspond à ' .$valeur . '<br>';
+}
+
+//-------------------------------------------
+echo '<h2>les arrays multidimensionnels</h2>';
+//-------------------------------------------
+// nous parlons dun tableu multidimentionnel losque un tab est contenu dans un autre tab.CHAQUE TABLE représente une dimension.
+
+// création d'un tab multi:
+$tab_multi = array(
+        0 => array('prenom' => 'julien', 'nom' => 'dupon', 'telephone' => '06 00 00 00'),
+        1 => array('prenom' => 'nicolas', 'nom' => 'dupon', 'telephone' => '06 00 00 00'),
+        2 => array('prenom' => 'pierre', 'nom' => 'dupon')
+
+        );
+
+        echo'<pre>'; print_r($tab_multi); echo '</pre>';
+
+        // accéder à la valeur julien:
+        echo $tab_multi[0]['prenom'] . '<br'; 
+        // affiche julien :nous entrons d'abord à l'indice 0 pour aller ensuite dans l'autre tableau à l'indice 'prenom'.NOTEZ QUE 4PRENOM EST UN STRING. 
+
+        // PARCOURIR LE TABLEAU MULTIDIMENTIONNEL AVEC UNE BOUCLE FOR:
+        for ($i = 0; $i < count($tab_multi); $i++) {
+            echo $tab_multi[$i]['prenom'] . '<br>';
+        }
+ 
+//  exercice : afficher les prénoms avec une boucle foreach :
+
+foreach($tab_multi as $valeur){
+    echo $valeur['prenom']. '<br>';
+}
+
+// correction:
+foreach($tab_multi as $indice => $valeur){
+    // premiére version en passant par l'indice:
+    echo $tab_multi[$indice]['prenom'] .'<br>';
+
+    // seconde en passant par la valeur:
+    echo $valeur['prenom'].'<br>';
+}
+
+//-------------------------------------------
+echo '<h2>les inclusions de fichiers</h2>';
+//-------------------------------------------
+echo 'premiére inclusion';
+include('exemple.inc.php'); //on inclut le fichier dont le chemin est spécifié ici 
+
+echo '<br>deuxiéme inclusion';
+include_once('exemple.inc.php');  //avec le once, on vérifie d'abord si le fichier n'est pas déja inclus 2 fois le meme fichier)
+
+echo'<br>troisiéme incllusion';
+require('exemple.inc.php');  //require fait la meme chose que include mais génére une erreur de type fatale s'il ne parvient pas à inclure le fichier ,qui interrompt l'exécution du script. en revanche ,include génére une erreur de type warning dans ce cas,ce qui n'interrompt pas la suite de l'exécution du script
+
+echo'<br>quatriéme  incllusion';
+require_once ('exemple.inc.php'); //avec le once on vérifie d'abord si le fichier n'est pas déja inclus avant de faire l'inclusion'
+
+//le ".inc" du nom du fichier inclus est là à titre indicatif pour préciser qu'il s'agit d'un fichier inclus et non pas d'un fichier directement utilisé.
+// *****************************************************************************************************
