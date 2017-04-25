@@ -4,32 +4,28 @@
 // faire traitement du formulaire pour afficher le prix du fruit choisi selon le poids indiqué en passant par la fonction calcul.
 // faire en sorte de garder le fruit choisi et le poids saisi dans les champs du formulaire aprés que celui ci soit validé.
 
-
 include('fonction.inc.php');
 
-if (isset($_POST['fruit'])){
+if (!empty($_POST)) {
 
-    echo calcul($_POST['fruit'],1000);
+    echo calcul($_POST['fruit'], $_POST['poids']) . '';
 
-
-
-
-
-
-
+}
 
 ?>
-<form action=""></form>
-<label for="fruit">fruits</label>
+
+
+
+
+
+<form method="post" action="">
 <select name="fruit" id="fruit">
-    <option value="cerises">cerises</option>
-    <option value="bananes">bananes</option>
-    <option value="pommes">pommes</option>
-    <option value="peches">peches</option>
+    <option value="cerises" <?php if(isset($_POST['fruit']) && $_POST['fruit'] == 'cerises') echo 'selected'; ?>>cerises</option>
+    <option value="bananes" <?php if(isset($_POST['fruit']) && $_POST['fruit'] == 'bananes') echo 'selected'; ?>>bananes</option>
+    <option value="pommes" <?php if(isset($_POST['fruit']) && $_POST['fruit'] == 'pommes') echo 'selected'; ?>>pommes</option>
+    <option value="peches" <?php if(isset($_POST['fruit']) && $_POST['fruit'] == 'peches') echo 'selected'; ?>>peches</option>
 </select>
 <br>
-
-<label for="poids">poids</label>
-<input type="number" id="poids" name"poids"><br>
+<input type="number" id="poids" name="poids" value=" <?php echo $_POST['poids'] ?? ''; ?>"><br>
 <input type="submit" value="valider">
 </form>
