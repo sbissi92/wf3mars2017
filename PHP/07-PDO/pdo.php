@@ -97,3 +97,62 @@ $pdo = new PDO('mysql:host=localhost;dbname=entreprise', 'root', '', array(PDO::
           $employe = $result->fetch(PDO::FETCH_NUM);
           echo '<pre>'; print_r($employe); echo '</pre>';
           echo $employe[0];
+
+
+        // *******************************
+        // 04-while et fetch_assoc
+        // *******************************
+
+        echo '<h1>04. while et fetch_assoc<h1>';
+
+        $resultat = $pdo->query("SELECT * FROM employes");
+        echo 'Nombre d\'employés : ' . $resultat->rowCount() . '<br>';  //permet de compter le nombre de ligne retournées par la requête
+
+        while ($contenu = $resultat->fetch(PDO::FETCH_ASSOC)) {  // fetch retourne la ligne suivante du jeu de résultat en array associatif . laboucle while permet de faire avancer le curseur dans le jeu de résultats, et s'arrete quand il est à la fin des résultats. 
+
+
+             echo '<pre>'; print_r($contenu); echo '</pre>';  //on voit que $contenu est un array associatif qui contient les données de chaque ligne du jeu de résultats . le nom des indices correspondent aux noms des champs. 
+
+             echo $contenu['id_employes'] . '<br>';
+             echo $contenu['prenom'] . '<br>';
+             echo $contenu['nom'] . '<br>';
+             echo $contenu['sexe'] . '<br>';
+             echo $contenu['service'] . '<br>';
+             echo $contenu['date_embauche'] . '<br>';
+             echo $contenu['salaire'] . '<br>';
+        }
+        //      echo '----------------------<br>';quand vous faites une requete qui ne sort qu'un seul résultat: pas de boucle  while, mais un fetch seul.
+        // quand vous avez plusieurs résultats dans la requete : on fait une boucle whiile pour parcourir tous les résultats. 
+
+        // *******************************
+        // 05-fetchAll
+        // *******************************
+
+        echo '<h1>05- fetchAll</h1>';
+        $resultat = $pdo->query("SELECT * FROM employes");
+        $donnees = $resultat->fetchAll(PDO::FETCH_ASSOC);  //retourne toutes les lignes de résultats dans un tableau multidimentionnel sans faire de boucle : vous avez un array associatif à chaque indice numérique.marche aussi avec FETCH_NUM. 
+
+        // echo '<pre>'; print_r($donnees); echo '<br>';
+        // pour lire le contenu d'un array multidimentionnel, nous faisons des boucles foreach imbriquées: 
+        echo '<strong>Double boucle foreach</strong><br>';
+
+        foreach ($donnees as $contenu) { // $contenu est un sous array associatif
+            foreach ($contenu as $indice =>  $valeur ){ //on parcourt donc chaque  sous array 
+                echo $indice . 'correspond à ' . $valeur . '<br>';
+            }
+            echo '---------------<br>';
+        }
+
+        // *********
+        // exercice
+        // *********
+
+        // afficher la liste des bases de données présentent sur votre SGBD dans une liste <ul><li>. 
+        // pour mémoire, la requete SQL est SHOW DATABASES. 
+         
+         $resultat = $pdo->query("SHOW DATABASES");
+         while ($databases = $resultat->fetch(PDO::FETCH_NUM)){
+
+                echo "<li>$databases[0]</li>";
+         }
+         
