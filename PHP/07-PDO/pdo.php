@@ -156,3 +156,104 @@ $pdo = new PDO('mysql:host=localhost;dbname=entreprise', 'root', '', array(PDO::
                 echo "<li>$databases[0]</li>";
          }
          
+
+
+
+
+
+
+
+
+
+         //***************************
+         //07- table html
+        //  **************************
+
+        echo'<h1>07. Table HTML</h1>';
+        $resultat = $pdo->query("SELECT * FROM employes");
+
+        echo '<table border = "1">';
+            // affichage de la ligne d'entêtes :
+            echo '<tr>';
+                for($i = 0; $i < $resultat->columnCount(); $i++) {
+                        echo '<pre>'; print_r($resultat->getColumnMeta($i)); echo '</pre>';    // pour voir ce que retourne la méthode getColumnMeta() : un array avec notamment l'indice name qui contient le nom du champ
+
+                        $colonne = $resultat->getColumnMeta ($i); // $colonne est un array qui contient l'indice name
+
+                        echo '<th>' . $colonne['name'] . '</th>'; // l'indice name contient le nom du champ 
+                      
+                }
+
+                echo '</tr>';
+            
+
+            // affichage des autres lignes :
+            while($ligne = $resultat->fetch(PDO::FETCH_ASSOC)) {
+                echo '<tr>';
+                 foreach($ligne as $information){
+                    //  echo '<pre>'; print_r($information); echo '</pre>';
+                     echo '<td>' . $information . '</td>';
+                 }
+                echo '</tr>';
+            }
+
+            echo '</table>';
+
+            // **********************
+            // 08-requetes préparées
+            // **********************
+
+            echo '<h1>08.requete préparée : prepare() + bindParam() + execute ()';
+
+            $nom = 'sennard';
+
+            // préparation de la requête : 
+            $resultat = $pdo->prepare("SELECT * FROM employes WHERE nom = :nom "); //on prépare la requête sans l'exécuter, avec un marqueur nominatif écrit :nom
+
+            // on donne une valeur au marqueur :nom 
+            $resultat->bindParam(':nom', $nom, pdo::PARAM_STR); // je lie le marqueur :nom à la variable $nom. si on change le contenu de la variable, la valeur du marqueur changera automatiquement si on fait plusieurs execute. 
+
+            //  on exécute la requete : 
+
+        $resultat->execute();
+        $donnees =$resultat->fetch(PDO::FETCH_ASSOC); // $donnees est un array associatif 
+        echo implode($donnees, '-'); //implode transforme l'array en string
+
+        /*
+        prepare() renvoie toujours un objet PDOStatment
+        execute() renvoie : 
+                            succés : un objet PDOStatment
+                            Echec  : false
+    
+         les requêtes préparées sont à préconiser si vous exécutez plusieurs fois la meme requete (par ex dans une boucle), et ainsi éviter le cycle complet analyse / interpretation /exécution de la requete. 
+
+         par ailleurs ,les requetes préparées sont souvent utilisées pour assainir les données en forçant le type des valeurs communiquées aux marqueurs. 
+        */
+
+         
+        //  **********************************
+        //  09- requete préparée : prepare() + bindValue() + execute()
+
+
+        echo '<h1>09. requête préparée : prepare() + bindValue() + execute()</h1>';
+
+        $nom = 'Thoyer';
+
+        // on prépare la requête :
+        $resultat = $pdo->prepare("SELECT * FROM employes WHERE nom = :nom ");
+
+        // on lie le marqueur à une valeur : 
+        $resultat->bindValue(':nom', $nom, PDO::PARAM_STR); // bindvallue reçoit une variable ou un string. le marqueur pointe uniquement vers la valeur : si celle_ci change,il faudra refaire un bindvalue pour prendre en compte cette nouvelle valeur lors d'un prochain execute(). 
+
+        // onexécute la requete:
+        $resultat->execute();
+
+        $donnees = $resultat->fetch(PDO::FETCH_ASSOC); // $donnees est un array associatif 
+        echo implode($donnees, '-');
+
+        // ...
+        $nom = 'Durand';
+        $resultat->execute();
+        $donnees = $resultat->fetch(PDO::FETCH_ASSOC);
+        echo implode($donnees, '-'); // en effet on obtient encore les informations de THOYER et non pas de echo Durand. 
+
