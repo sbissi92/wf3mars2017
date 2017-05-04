@@ -26,7 +26,9 @@ $contenu .= '<div><h3>voici vos informations de profil </h3>';
 $contenu .= '</div>';
 
 
-
+// exercice :
+//  1- affichez le suivi des commandes du membre sil y en a dans une liste ul li : id_commande, date et eétat de la commande 
+// sil ya pas on affiche 'aucune commande en cours '
 
 
 

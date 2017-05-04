@@ -36,11 +36,15 @@ if(isset($_GET['categorie']) && $_GET['categorie'] != 'all') {
 }
 while ($produit = $donnees->fetch(PDO::FETCH_ASSOC)) {
     $contenu_droite .= '<div class="col-sm-4 col-lg-4 col-md-4">';
-      $contenu_droite .= '<div class="thumbnail">';
-            $contenu_droite .= '<a href=""><img src="" width="130" height="100" ></a>';
-
+        $contenu_droite .= '<div class="thumbnail">';
+            $contenu_droite .= '<a href="fiche_produit.php?id_produit='.$produit['id_produit'].'"><img src="'.$produit['photo'].'" width="130" height="100"></a>';
+            $contenu_droite .= '<div class="caption">';
+                $contenu_droite .= '<h4 class="pull-right">'.$produit['prix'].' €</h4>';
+                $contenu_droite .= '<h4>'.$produit['titre'].'</h4>';
+                $contenu_droite .= '<p>'.$produit['description'].'</p>';
             $contenu_droite .= '</div>';
         $contenu_droite .= '</div>';
+    $contenu_droite .= '</div>';
 }
 // -----------------------affichage-----------------------------
 require_once('inc/haut.inc.php');
