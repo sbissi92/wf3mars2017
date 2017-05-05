@@ -27,10 +27,24 @@ $contenu .= '</div>';
 
 
 // exercice :
-//  1- affichez le suivi des commandes du membre sil y en a dans une liste ul li : id_commande, date et eétat de la commande 
+//  1- affichez le suivi des commandes du membre sil y en a dans une liste ul li : id_commande, date et état de la commande 
 // sil ya pas on affiche 'aucune commande en cours '
+$id_membre = $_SESSION['membre']['id_membre'];
+$mesCommandes = executeRequete("SELECT id_commande, date_enregistrement, etat FROM commande WHERE id_membre = '$id_membre'");
 
+while($resultat = $mesCommandes->fetch(PDO::FETCH_ASSOC)){
 
+    if ($resultat) {
+        $contenu .= '<ul> 
+                        <li>id_commande : '.$resultat['id_commande'].'</li>
+                        <li>date_commande : '.$resultat['date_enregistrement'].'</li>
+                        <li>etat de la commande : '.$resultat['etat'].'</li>
+                     </ul>';
+    } else {
+        $contenu .= 'pas de commande en cours';
+    }
+
+}
 
 
 
