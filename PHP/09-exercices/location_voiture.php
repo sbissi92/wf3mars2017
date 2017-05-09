@@ -13,6 +13,42 @@
 // ------------traitement-----------------
 
 
+function prixLoc ($nombresJours,$categorie){
+
+     switch($categorie) {
+        case 'A' : $prix = ($nombresJours*30);break;
+        case 'B' : $prix = ($nombresJours*50);break;
+        case 'C' : $prix = ($nombresJours*70);break;
+        default: $prix = ($nombresJours*90);
+    
+}
+    return $prix;
+}
+
+
+$categorie = array('A','B','C','D');
+$nombresJours = intval($_POST['nombres_de_jours_de_location']);
+
+
+
+if(!empty($_POST)){
+   
+   if ( !in_array($_POST['categories'],$categorie)) {
+       $affichage = 'categorie non choisie';
+   }
+
+   if ($nombresJours <= 0) {
+      $affichage = 'nombres de jours indéfini';
+   }
+   
+   if(empty($affichage)){
+    $affichage = 'la location de votre véhicule sera de '.prixLoc($nombresJours,$_POST['categories']).'euros pour '.$nombresJours.' jours';
+    }
+    }
+
+
+
+
 
 
 
@@ -35,18 +71,19 @@
 <body>
 	<form method="post" action="">
         <label for="categories de vehicules"></label>
-            <select name="categories"id="categories">
+            <select name="categories" id="categories">
                 <option value="A">A</option>
                 <option value="B">B</option>
                 <option value="C">C</option>
                 <option value="D">D</option>
-           </select>
+           </select> <br>
 
         <label for="nombres de jours de location"></label>
-        <input type="text" id="nombres de jours de location" name="nombres de jours de location" value="0">
+        <input type="text" id="nombres de jours de location" name="nombres_de_jours_de_location" value="0"><br>
 
         <input type="submit"  value="valider">
 
     </form>
+    <div><?php echo $affichage ?></div>
 </body>
 </html>
