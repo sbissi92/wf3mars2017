@@ -1,40 +1,37 @@
 <?php
 // -------------traitement-------------------
+
+// déclaration de $affichage
 $affichage = '';
 
+// fonction de conversion de money
 function conversion($montant,$devise){
-    if($devise == 'euro'){
+    if($devise == 'euro'){ //si l'unité choisie est l'euro on converti en dollard
         $contenu = $montant * 1.085965;
-        $return = array('contenu'=>$contenu,'devise'=>'euro');
-    }elseif($devise == 'US'){
-        $contenu = $montant / 1.085965;
         $return = array('contenu'=>$contenu,'devise'=>'US');
+    // }else{si nn on converti en euro
+        $contenu = $montant / 1.085965;
+        $return = array('contenu'=>$contenu,'devise'=>'euro');
     }
     return $return;
 }
-
+// vérification des paramétres
 if (!empty($_GET)){
-    if(!is_numeric($_GET['montant']) || $_GET['montant'] <= 0 || empty($_GET['montant'])){
+    // il faut entré un montant et que  le montant entré soit en chiffres et supérieur à 0 
+    if(!is_numeric($_GET['montant'])|| $_GET['montant'] <= 0 || empty($_GET['montant'])){
         $affichage .= '<p>montant incorrect</p>';
     }
-    if (!empty($_GET['devise']) || ($_GET['devise'] != 'euro' && $_GET['devise'] != 'US')){
+    // l'unité choisie doit etre soit le dollad soit l'euro
+    if (empty($_GET['devise']) || ($_GET['devise'] != 'euro' && $_GET['devise'] != 'US')){
         $affichage .= '<p>devise non valide</p>';
     }
+    // si les paramétres entrés sont valide on appelle la fonction pour le calcul
     if (empty($affichage)){
         $resultat = conversion($_GET['montant'],$_GET['devise']);
-        $affichage .= "$resultat[devise]$resultat[montant] = $resultat[montant]";
+        $resultat_unite =($_GET['devise'] == 'US')?'dollard' : 'euro';   //déclaration dune variable pour l'affichage des unités correctes'
+        $affichage .= $_GET['montant'].''.$resultat_unite.' = '.$resultat['contenu'].''.$resultat['devise'];
     }
 }
-
-
-
-
-
-
-
-
-
-
 
 
 // -------------affichage--------------------
@@ -58,7 +55,7 @@ if (!empty($_GET)){
         <input type="submit" value="conversion">
 
         <div><?php echo $affichage; ?></div>
-        <div><?php echo $contenu; ?></div>
+        
     </form>
 </body>
 </html>
