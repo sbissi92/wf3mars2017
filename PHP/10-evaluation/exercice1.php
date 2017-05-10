@@ -17,8 +17,8 @@ foreach ($aray as $key => $value) {
            
 // (affichage en liste <li>):
         $affichage .= "<li>$key : $value</li>";
-
 }
+
 
 
 // -----------------------affichage------------------------
